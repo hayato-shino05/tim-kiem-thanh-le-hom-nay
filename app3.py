@@ -9,7 +9,7 @@ from io import BytesIO
 import os
 import sys
 
-API_KEY = "AIzaSyBkgxxgxE6pp8DDnIBBTy52UMBt3fECEOM"
+API_KEY = "AIzaSyC14GlOtrF7XScPuBLRhsoG6AVOqquA60U"
 BASE_URL = "https://www.googleapis.com/youtube/v3/search"
 
 videos_list = []
