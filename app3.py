@@ -9,11 +9,9 @@ from io import BytesIO
 import os
 import sys
 
-# API Key của bạn từ Google Cloud Platform
 API_KEY = "AIzaSyBkgxxgxE6pp8DDnIBBTy52UMBt3fECEOM"
 BASE_URL = "https://www.googleapis.com/youtube/v3/search"
 
-# Biến toàn cục để lưu trữ các video và từ khóa tìm kiếm
 videos_list = []
 current_keyword = ""
 
@@ -25,7 +23,7 @@ def search_videos(keyword, max_results=5):
         "part": "snippet",
         "type": "video",
         "maxResults": max_results,
-        "order": "date",  # Sắp xếp theo thời gian đăng tải
+        "order": "date",  
     }
     try:
         response = requests.get(BASE_URL, params=params)
@@ -52,7 +50,7 @@ def search_videos(keyword, max_results=5):
 def open_video(url):
     """Mở video trong trình duyệt và tắt chương trình"""
     webbrowser.open(url)
-    sys.exit(0)  # Thoát chương trình
+    sys.exit(0)  
 
 def display_menu(videos, keyword):
     """Hiển thị menu danh sách video với ảnh thumbnail"""
@@ -69,11 +67,9 @@ def display_menu(videos, keyword):
     menu_window.iconbitmap("3.ico")
 
 
-    # Cài đặt font chữ
     header_font = font.Font(family="Helvetica", size=16, weight="bold")
     button_font = font.Font(family="Helvetica", size=12, weight="bold")
 
-    # Tiêu đề
     tk.Label(
         menu_window,
         text=f"Kết quả tìm kiếm cho: {keyword}",
@@ -82,7 +78,6 @@ def display_menu(videos, keyword):
         fg="#333"
     ).pack(pady=10)
 
-    # Khung cuộn
     frame_canvas = tk.Frame(menu_window)
     frame_canvas.pack(fill="both", expand=True, padx=10, pady=10)
 
@@ -101,10 +96,8 @@ def display_menu(videos, keyword):
     canvas.pack(side="left", fill="both", expand=True)
     scrollbar.pack(side="right", fill="y")
 
-    # Hỗ trợ lăn chuột
     canvas.bind_all("<MouseWheel>", lambda event: canvas.yview_scroll(-1 * int(event.delta / 120), "units"))
 
-    # Hiển thị danh sách video
     for video in videos:
         try:
             thumbnail_response = requests.get(video["thumbnail"])
@@ -140,7 +133,6 @@ def display_menu(videos, keyword):
         except Exception as e:
             print(f"Lỗi khi tải thumbnail hoặc hiển thị: {e}")
 
-    # Khung chứa các nút
     button_frame = tk.Frame(menu_window, bg="#f9f9f9")
     button_frame.pack(pady=10)
 
@@ -171,7 +163,6 @@ def display_menu(videos, keyword):
     def exit_program():
         sys.exit(0)
 
-    # Nút "Tìm kiếm từ khóa khác"
     tk.Button(
         button_frame,
         text="Tìm kiếm từ khóa khác",
@@ -184,7 +175,6 @@ def display_menu(videos, keyword):
         command=search_other_keyword
     ).pack(side="left", padx=10)
 
-    # Nút "Hiển thị thêm video"
     tk.Button(
         button_frame,
         text="Hiển thị thêm video",
@@ -197,7 +187,6 @@ def display_menu(videos, keyword):
         command=load_more_videos
     ).pack(side="left", padx=10)
 
-    # Nút "Thoát"
     tk.Button(
         button_frame,
         text="Thoát",

@@ -8,7 +8,6 @@ from PIL import Image, ImageTk
 from io import BytesIO
 import os
 
-# API Key của bạn từ Google Cloud Platform
 API_KEY = "AIzaSyBkgxxgxE6pp8DDnIBBTy52UMBt3fECEOM"
 BASE_URL = "https://www.googleapis.com/youtube/v3/search"
 
@@ -20,7 +19,7 @@ def search_videos(keyword, max_results=5):
         "part": "snippet",
         "type": "video",
         "maxResults": max_results,
-        "order": "date",  # Sắp xếp theo thời gian đăng tải
+        "order": "date",  
     }
     response = requests.get(BASE_URL, params=params)
     response.raise_for_status()
@@ -42,7 +41,7 @@ def search_videos(keyword, max_results=5):
 def open_video(url):
     """Mở video trong trình duyệt và tắt chương trình"""
     webbrowser.open(url)
-    os._exit(0)  # Thoát hoàn toàn chương trình
+    os._exit(0)  
 
 def display_menu(videos, keyword):
     """Hiển thị menu danh sách video với ảnh thumbnail"""
@@ -52,11 +51,9 @@ def display_menu(videos, keyword):
     menu_window.configure(bg="#f9f9f9")
     menu_window.iconbitmap("3.ico")
 
-    # Cài đặt font chữ
     header_font = font.Font(family="Helvetica", size=16, weight="bold")
     button_font = font.Font(family="Helvetica", size=12, weight="bold")
 
-    # Tiêu đề
     tk.Label(
         menu_window,
         text=f"Kết quả tìm kiếm cho: {keyword}",
@@ -65,7 +62,6 @@ def display_menu(videos, keyword):
         fg="#333"
     ).pack(pady=10)
 
-    # Khung cuộn
     frame_canvas = tk.Frame(menu_window)
     frame_canvas.pack(fill="both", expand=True, padx=10, pady=10)
 
@@ -84,25 +80,20 @@ def display_menu(videos, keyword):
     canvas.pack(side="top", fill="both", expand=True)
     scrollbar.pack(side="bottom", fill="x")
 
-    # Hiển thị danh sách video
     for video in videos:
-        # Tải ảnh thumbnail từ URL
         thumbnail_response = requests.get(video["thumbnail"])
         img_data = thumbnail_response.content
         img = Image.open(BytesIO(img_data))
-        img = img.resize((120, 90), Image.LANCZOS)  # Resize ảnh
+        img = img.resize((120, 90), Image.LANCZOS)  
         img = ImageTk.PhotoImage(img)
 
-        # Tạo khung cho mỗi video
         frame = tk.Frame(scrollable_frame, bg="#f9f9f9", highlightbackground="#ddd", highlightthickness=1)
         frame.pack(side="left", padx=5, pady=5)
 
-        # Thêm ảnh thumbnail
         label_img = tk.Label(frame, image=img, bg="#f9f9f9")
-        label_img.image = img  # Giữ tham chiếu tới ảnh
+        label_img.image = img  
         label_img.pack()
 
-        # Thêm nút tiêu đề video
         btn = tk.Button(
             frame,
             text=video["title"],
@@ -119,7 +110,6 @@ def display_menu(videos, keyword):
         )
         btn.pack()
 
-    # Nút "Hiển thị thêm video"
     def load_more_videos():
         """Tải thêm video và hiển thị"""
         try:
@@ -141,7 +131,6 @@ def display_menu(videos, keyword):
         command=load_more_videos
     ).pack(pady=10)
 
-    # Nút "Tìm kiếm từ khóa khác"
     def search_other_keyword():
         """Cho phép người dùng nhập từ khóa khác để tìm kiếm"""
         keyword = simpledialog.askstring("Nhập từ khóa", "Nhập từ khóa bạn muốn tìm:")
@@ -170,7 +159,6 @@ def display_menu(videos, keyword):
         command=search_other_keyword
     ).pack(pady=10)
 
-    # Nút "Thoát"
     tk.Button(
         menu_window,
         text="Thoát",
@@ -180,7 +168,7 @@ def display_menu(videos, keyword):
         bd=0,
         padx=20,
         pady=10,
-        command=lambda: os._exit(0)  # Thoát hoàn toàn chương trình
+        command=lambda: os._exit(0)  
     ).pack(pady=10)
 
     menu_window.mainloop()
@@ -199,7 +187,6 @@ def main():
         messagebox.showerror("Lỗi", f"Không thể tìm kiếm video.\n{e}")
 
 if __name__ == "__main__":
-    # Ẩn cửa sổ CMD khi chạy file .bat
     import ctypes
     ctypes.windll.kernel32.FreeConsole()
 
