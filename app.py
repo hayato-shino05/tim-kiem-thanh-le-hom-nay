@@ -1,5 +1,6 @@
 import webbrowser
 import requests
+from datetime import datetime
 
 # API Key của bạn từ Google Cloud Platform
 API_KEY = "AIzaSyBkgxxgxE6pp8DDnIBBTy52UMBt3fECEOM"
@@ -25,11 +26,15 @@ def search_videos(keyword):
     return videos
 
 def main():
-    # Nhập từ khóa tìm kiếm
-    keyword = input("Nhập từ khóa tìm kiếm: ").strip()
+    today = datetime.now().strftime("%d-%m-%Y")
+    default_keyword = f"thánh lễ trực tuyến hôm nay {today}"
+    
+    print(f"Từ khóa mặc định: {default_keyword}")
+    
+    # Người dùng có thể nhập từ khóa mới (hoặc dùng mặc định)
+    keyword = input("Nhập từ khóa tìm kiếm (hoặc nhấn Enter để dùng từ khóa mặc định): ").strip()
     if not keyword:
-        print("Từ khóa không được để trống!")
-        return
+        keyword = default_keyword
 
     # Tìm kiếm video
     try:
