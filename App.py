@@ -1,90 +1,116 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
-from kivy.uix.image import AsyncImage
 from kivy.uix.label import Label
 from kivy.uix.scrollview import ScrollView
+from kivy.uix.image import AsyncImage
 from kivy.uix.textinput import TextInput
-from kivy.network.urlrequest import UrlRequest
-import webbrowser
+from kivy.uix.popup import Popup
+from kivy.uix.gridlayout import GridLayout
+import requests
+from datetime import datetime
 
-API_KEY = "AIzaSyC14GlOtrF7XScPuBLRhsoG6AVOqquA60"
+API_KEY = "AIzaSyC14GlOtrF7XScPuBLRhsoG6AVOqquA60U"
 BASE_URL = "https://www.googleapis.com/youtube/v3/search"
 
-class YouTubeSearchApp(App):
+class VideoSearchApp(App):
     def build(self):
-        self.root = BoxLayout(orientation='vertical', padding=10, spacing=10)
-        self.search_bar = TextInput(hint_text="Nhập từ khóa tìm kiếm...", size_hint_y=None, height=50)
-        self.search_button = Button(text="Tìm kiếm", size_hint_y=None, height=50, on_press=self.search_videos)
+        self.root_layout = BoxLayout(orientation='vertical')
+        
+        # Header with search functionality
+        self.header = BoxLayout(size_hint_y=0.1, padding=10, spacing=10)
+        self.search_input = TextInput(hint_text="Enter keyword", multiline=False)
+        self.search_button = Button(text="Search", size_hint_x=0.2, on_press=self.search_videos)
+        self.header.add_widget(self.search_input)
+        self.header.add_widget(self.search_button)
+        
+        # Scrollable video list
         self.scroll_view = ScrollView()
+        self.video_list = GridLayout(cols=1, spacing=10, size_hint_y=None)
+        self.video_list.bind(minimum_height=self.video_list.setter('height'))
+        self.scroll_view.add_widget(self.video_list)
 
-        self.result_layout = BoxLayout(orientation='vertical', size_hint_y=None)
-        self.result_layout.bind(minimum_height=self.result_layout.setter('height'))
+        self.root_layout.add_widget(self.header)
+        self.root_layout.add_widget(self.scroll_view)
 
-        self.scroll_view.add_widget(self.result_layout)
+        # Default search
+        self.default_keyword = f"thánh lễ trực tuyến hôm nay {datetime.now().strftime('%d-%m-%Y')}"
+        self.perform_search(self.default_keyword)
 
-        self.root.add_widget(self.search_bar)
-        self.root.add_widget(self.search_button)
-        self.root.add_widget(self.scroll_view)
-
-        return self.root
+        return self.root_layout
 
     def search_videos(self, instance):
-        keyword = self.search_bar.text
-        if not keyword:
-            self.show_message("Vui lòng nhập từ khóa tìm kiếm!")
-            return
+        keyword = self.search_input.text.strip()
+        if keyword:
+            self.perform_search(keyword)
 
+    def perform_search(self, keyword):
         params = {
             "key": API_KEY,
             "q": keyword,
             "part": "snippet",
             "type": "video",
-            "maxResults": 5,
-            "order": "date"
+            "maxResults": 10,
+            "order": "date",
         }
 
-        url = f"{BASE_URL}?{'&'.join([f'{k}={v}' for k, v in params.items()])}"
-        UrlRequest(url, on_success=self.display_results, on_error=self.on_error, on_failure=self.on_error)
+        try:
+            response = requests.get(BASE_URL, params=params)
+            response.raise_for_status()
+            results = response.json()
 
-    def display_results(self, req, result):
-        self.result_layout.clear_widgets()
+            self.display_videos(results.get("items", []), keyword)
 
-        videos = result.get("items", [])
+        except requests.exceptions.RequestException as e:
+            self.show_popup("Error", f"Failed to connect to YouTube API: {e}")
+
+    def display_videos(self, videos, keyword):
+        self.video_list.clear_widgets()
         if not videos:
-            self.show_message("Không tìm thấy video nào!")
+            self.show_popup("No Results", "No videos found.")
             return
 
-        for video in videos:
-            video_id = video["id"]["videoId"]
-            title = video["snippet"]["title"]
-            thumbnail_url = video["snippet"]["thumbnails"]["high"]["url"]
+        for item in videos:
+            video_id = item.get("id", {}).get("videoId")
+            snippet = item.get("snippet", {})
 
-            video_layout = BoxLayout(orientation='horizontal', size_hint_y=None, height=120, padding=5, spacing=10)
+            if not video_id or not snippet:
+                continue
 
-            thumbnail = AsyncImage(source=thumbnail_url, size_hint_x=None, width=150)
-            video_button = Button(
-                text=title,
-                halign='left',
-                valign='middle',
-                on_press=lambda instance, url=f"https://www.youtube.com/watch?v={video_id}": self.open_video(url)
-            )
-            video_button.text_size = (video_button.width - 20, None)
+            title = snippet.get("title", "Untitled")
+            thumbnail_url = snippet.get("thumbnails", {}).get("high", {}).get("url")
+            description = snippet.get("description", "No description available.")
+            
+            video_url = f"https://www.youtube.com/watch?v={video_id}"
 
-            video_layout.add_widget(thumbnail)
-            video_layout.add_widget(video_button)
+            video_box = BoxLayout(orientation='horizontal', size_hint_y=None, height=120, padding=5)
+            
+            if thumbnail_url:
+                thumbnail = AsyncImage(source=thumbnail_url, size_hint_x=0.3)
+                video_box.add_widget(thumbnail)
 
-            self.result_layout.add_widget(video_layout)
+            info_box = BoxLayout(orientation='vertical')
+            info_box.add_widget(Label(text=title, size_hint_y=0.5))
+            info_box.add_widget(Label(text=description[:100] + '...', size_hint_y=0.5))
 
-    def on_error(self, req, error):
-        self.show_message(f"Lỗi khi tìm kiếm: {error}")
+            play_button = Button(text="Play", size_hint_x=0.2, on_press=lambda instance, url=video_url: self.open_video(url))
+            video_box.add_widget(info_box)
+            video_box.add_widget(play_button)
+
+            self.video_list.add_widget(video_box)
 
     def open_video(self, url):
+        import webbrowser
         webbrowser.open(url)
 
-    def show_message(self, message):
-        self.result_layout.clear_widgets()
-        self.result_layout.add_widget(Label(text=message, size_hint_y=None, height=50))
+    def show_popup(self, title, message):
+        popup_layout = BoxLayout(orientation='vertical', padding=10, spacing=10)
+        popup_layout.add_widget(Label(text=message))
+        close_button = Button(text="Close", size_hint_y=0.2, on_press=lambda instance: popup.dismiss())
+        popup_layout.add_widget(close_button)
+        
+        popup = Popup(title=title, content=popup_layout, size_hint=(0.8, 0.4))
+        popup.open()
 
 if __name__ == '__main__':
-    YouTubeSearchApp().run()
+    VideoSearchApp().run()
