@@ -8,7 +8,7 @@ from PIL import Image, ImageTk
 from io import BytesIO
 import os
 
-API_KEY = "AIzaSyC14GlOtrF7XScPuBLRhsoG6AVOqquA60U"
+API_KEY = "AIzaSyB3TVck-0zXMmNLBAZSpy7E0QTSLZEn4eM"
 BASE_URL = "https://www.googleapis.com/youtube/v3/search"
 
 def search_videos(keyword):
