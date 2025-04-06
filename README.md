@@ -1,23 +1,33 @@
-Chào mừng bạn đến với công cụ Tìm Kiếm Thánh Lễ Trực Tuyến!
+# Xin chào bạn, chào mừng đến với Tìm Kiếm Thánh Lễ Trực Tuyến!
 
-Công cụ này được thiết kế để giúp bạn dễ dàng tìm kiếm và xem các video thánh lễ trực tuyến mà không cần phải nhập từ khóa. Với giao diện đơn giản, bạn chỉ cần click vào nút để xem các video thánh lễ mới nhất. Tất cả các video sẽ được hiển thị với hình ảnh thu nhỏ, và bạn chỉ cần chọn video yêu thích để bắt đầu xem ngay lập tức.
-Các tính năng nổi bật:
+Mình là người đứng sau ứng dụng này, và mình thực sự muốn làm một cái gì đó giúp mọi người – đặc biệt là bạn – có thể dễ dàng xem các thánh lễ trực tuyến mà không phải loay hoay tìm kiếm khắp nơi. Ý tưởng là thế này: bạn chỉ cần mở ứng dụng lên, nhấn vài cái nhẹ nhàng, thế là cả một danh sách video thánh lễ mới nhất hiện ra trước mắt. Không cần phải làm gì phức tạp, cứ đơn giản vậy thôi, dùng một lần là thích mê luôn!
 
-•	Tự động tìm kiếm video thánh lễ: Bạn không cần phải nhập bất kỳ từ khóa nào. Công cụ sẽ tự động tìm kiếm các video 
-thánh lễ trực tuyến mới nhất.
+## Tải về ngay nào
+- **Dành cho Android**: Bạn dùng điện thoại Android (như Samsung, Xiaomi, Oppo hay mấy loại phổ thông khác) thì nhấn vào [đây để tải](https://objects.githubusercontent.com/github-production-release-asset-2e65be/909404292/c4c77093-a8fb-42a0-ad99-0e9d16095627?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250406%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250406T073723Z&X-Amz-Expires=300&X-Amz-Signature=ba0d82478994a2fdba1e530abd289213f8b4333dd2e94c963390e472ebda68ba&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dtimkiemthanhle.apk&response-content-type=application%2Fvnd.android.package-archive). Đây là file .apk, tải về rồi nhờ ai đó cài vào máy là xong, dễ lắm!
 
-•	Giao diện dễ sử dụng: Chỉ cần click vào video bạn muốn xem từ danh sách được hiển thị.
+## Ứng dụng này có gì hay ho?
+- **Tự tìm video cho bạn**: Bạn không cần phải gõ chữ hay tìm kiếm gì đâu, cứ mở lên là ứng dụng tự động hiện ngay các video thánh lễ mới nhất. Mình đã cố gắng làm sao để nó tiện nhất có thể.
+- **Dễ xài cực kỳ**: Giao diện mình làm đơn giản hết mức, chỉ cần nhìn là biết cách dùng ngay. Thấy video nào hay thì nhấn vào, thế là xem được luôn, không rườm rà.
+- **Luôn có cái mới**: Mình thiết kế để ứng dụng tự cập nhật thường xuyên, nên mỗi lần bạn mở lên là lại có thêm video mới. Không sợ bị lặp lại hay hết đâu mà!
+- **Nhìn trước đã mắt**: Mỗi video đều có một cái ảnh nhỏ xinh xinh kèm theo. Bạn cứ nhìn ảnh, thấy cái nào hợp ý thì nhấn vào xem, tiện lợi lắm luôn.
 
-•	Cập nhật video mới: Công cụ liên tục cập nhật các video thánh lễ trực tuyến, giúp bạn luôn theo dõi được những video 
-mới nhất.
+## Dùng sao cho nhanh?
+Mình hướng dẫn bạn từng bước nè, cứ làm theo là được:
+1. Tải ứng dụng từ cái link phía trên (hiện tại mới có cho Android thôi, bạn nhé).
+2. Mở điện thoại lên, tìm cái biểu tượng ứng dụng – nó tên là "Tìm Kiếm Thánh Lễ". Nhấn vào đó để mở.
+3. Đợi một chút xíu cho video hiện lên (chậm tí thì đừng lo, mạng nào cũng vậy thôi).
+4. Nhìn màn hình, thấy video nào hay hay, ảnh đẹp đẹp thì nhấn vào cái ảnh nhỏ đó. Vậy là xem được ngay, thoải mái luôn!
 
-•	Hiển thị ảnh thu nhỏ: Mỗi video đi kèm với ảnh thu nhỏ để bạn có thể nhanh chóng nhận diện và chọn video muốn xem.
+## Ứng dụng này ra đời thế nào?
+Thật ra, mình làm ứng dụng này vì thấy nhiều người muốn xem thánh lễ mà không biết tìm ở đâu, hoặc tìm thì mất thời gian. Mình nghĩ, nếu có một công cụ tự động làm hết mấy việc đó thì sẽ tiện biết bao. Thế là mình ngồi mày mò, thử đủ cách, có lúc tưởng không xong nổi, nhưng cuối cùng cũng hoàn thành được cái ứng dụng này để tặng mọi người. Hy vọng bạn thấy nó hữu ích và dùng thấy thích nhé!
 
-Ngoài ra, nếu bạn muốn ủng hộ tôi, bạn có thể chuyển khoản vào tài khoản sau:
+## Muốn ủng hộ mình chút không?
+Mình làm ứng dụng này hoàn toàn miễn phí, không thu tiền gì cả. Nhưng nếu bạn thấy nó hay và muốn góp chút sức để mình tiếp tục phát triển, thêm tính năng mới hay sửa lỗi gì đó, bạn có thể gửi qua:  
+- **Số tài khoản**: 0342796576  
+- **Tên mình**: Vũ Đức Dũng  
+- **Ngân hàng**: MBBank  
 
-STK: 0342796576 - Vu Duc Dung
+Dù là ít hay nhiều, mình cũng trân trọng lắm. Đó không chỉ là sự giúp đỡ mà còn là động lực để mình cố gắng hơn mỗi ngày. Cảm ơn bạn trước nha, bạn tốt bụng lắm luôn!
 
-MBBank
-
-Cảm ơn bạn đã sử dụng công cụ, và hy vọng bạn sẽ tìm được những video thánh lễ tuyệt vời!
-
+## Cuối cùng thì…
+Mình thực sự cảm ơn bạn đã dành thời gian dùng thử "Tìm Kiếm Thánh Lễ Trực Tuyến". Mình hy vọng bạn sẽ tìm thấy những video thật ý nghĩa, giúp bạn cảm thấy gần gũi và bình an hơn khi xem thánh lễ mỗi ngày. Nếu có gì hay ho muốn góp ý, hoặc thấy chỗ nào chưa ổn, cứ nhắn mình nhé – mình luôn sẵn lòng nghe và sửa để ứng dụng tốt hơn. Chúc bạn dùng vui vẻ, gặp nhiều điều tốt lành và luôn mạnh khỏe nha!
