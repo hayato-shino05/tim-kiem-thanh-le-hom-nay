@@ -4,10 +4,16 @@ Xin chào bạn! Chào mừng bạn đến với **Tìm Kiếm Thánh Lễ Trự
 
 Tôi là người đứng sau ứng dụng này, và mục tiêu của tôi là mang đến cho bạn – và mọi người – một cách tiếp cận nhanh chóng, tiện lợi đến các video thánh lễ mới nhất. Chỉ cần mở ứng dụng, nhấn vài cái, và danh sách thánh lễ sẽ hiện ra ngay trước mắt. Đơn giản vậy thôi, dùng một lần là thích mê luôn!
 
-## Tình trạng tải xuống
-![Tổng lượt tải](https://img.shields.io/github/downloads/Hayato-shino05/tool-tim-kiem-thanh-le-hom-nay/total?label=Tổng%20lượt%20tải&style=for-the-badge&color=brightgreen)  
-![Android Downloads](https://img.shields.io/github/downloads/Hayato-shino05/tool-tim-kiem-thanh-le-hom-nay/timkiemthanhle.apk?label=Android&style=for-the-badge&color=orange)  
-![Windows Downloads](https://img.shields.io/github/downloads/Hayato-shino05/tool-tim-kiem-thanh-le-hom-nay/timkiemthanhle.exe?label=Windows&style=for-the-badge&color=blue)
+## 📊 Tình trạng tải xuống
+
+<!-- DOWNLOAD_BADGES_START -->
+<p align="center">
+  <img src="https://img.shields.io/badge/Tổng_lượt_tải-0-brightgreen?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Android-0-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Windows-0-blue?style=for-the-badge" />
+</p>
+<!-- DOWNLOAD_BADGES_END -->
+
 
 ## Tải về ngay
 - **Dành cho Android**: Nếu bạn dùng điện thoại Android (Samsung, Xiaomi, Oppo, v.v.), nhấn vào [đây để tải file .apk](https://github.com/Hayato-shino05/tool-tim-kiem-thanh-le-hom-nay/releases/download/Android/timkiemthanhle.apk). Tải về và cài đặt dễ dàng!

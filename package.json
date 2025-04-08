@@ -1,0 +1,15 @@
+{
+  "name": "tool-tim-kiem-thanh-le-hom-nay",
+  "version": "1.0.0",
+  "description": "Xin chào bạn! Chào mừng bạn đến với **Tìm Kiếm Thánh Lễ Trực Tuyến** – một ứng dụng đơn giản nhưng hữu ích giúp bạn dễ dàng xem các thánh lễ trực tuyến mà không phải mất công tìm kiếm khắp nơi.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.8.4"
+  }
+}
