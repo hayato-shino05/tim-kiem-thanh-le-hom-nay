@@ -3,7 +3,10 @@ name: Update Download Count
 on:
   schedule:
     - cron: '0 0 * * *'  # Mỗi ngày lúc 00:00 UTC
-  workflow_dispatch:     # Cho phép chạy thủ công từ GitHub
+  workflow_dispatch:   # Cho phép chạy thủ công từ GitHub
+
+permissions:
+  contents: write
 
 jobs:
   update:
@@ -23,10 +26,11 @@ jobs:
       - name: Run script
         run: node scripts/update-download-count.js
 
-      - name: Commit changes
+      - name: Commit and push
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           git add README.md
-          git commit -m "🔁 update download count" || echo "No changes"
+          git commit -m "🔁 update download count" || echo "No changes to commit"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push
