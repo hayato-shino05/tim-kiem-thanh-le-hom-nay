@@ -12,7 +12,6 @@ Tôi là người đứng sau ứng dụng này, và mục tiêu của tôi là 
 ## Tải về ngay
 - **Dành cho Android**: Nếu bạn dùng điện thoại Android (Samsung, Xiaomi, Oppo, v.v.), nhấn vào [đây để tải file .apk](https://github.com/Hayato-shino05/tool-tim-kiem-thanh-le-hom-nay/releases/download/Android/timkiemthanhle.apk). Tải về và cài đặt dễ dàng!
 - **Dành cho Windows**: Nếu bạn dùng máy tính/laptop chạy Windows, nhấn vào [đây để tải file .exe](https://github.com/Hayato-shino05/tool-tim-kiem-thanh-le-hom-nay/releases/download/Windows/timkiemthanhle.exe). Tải về, nhấn đúp để cài, chỉ vài bước là xong!
-
 ## Ứng dụng này có gì hay ho?
 - **Tự tìm video cho bạn**: Bạn không cần phải gõ chữ hay tìm kiếm gì đâu, cứ mở lên là ứng dụng tự động hiện ngay các video thánh lễ mới nhất. Mình đã cố gắng làm sao để nó tiện nhất có thể.
 - **Dễ xài cực kỳ**: Giao diện mình làm đơn giản hết mức, chỉ cần nhìn là biết cách dùng ngay. Thấy video nào hay thì nhấn vào, thế là xem được luôn, không rườm rà.
