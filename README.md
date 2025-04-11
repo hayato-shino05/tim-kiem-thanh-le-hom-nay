@@ -8,9 +8,9 @@ Tôi là người đứng sau ứng dụng này, và mục tiêu của tôi là 
 
 <!-- DOWNLOAD_BADGES_START -->
 <p align="center">
-  <img src="https://img.shields.io/badge/Tổng_lượt_tải-20-brightgreen?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Android-5-orange?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Windows-15-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Tổng_lượt_tải-49-brightgreen?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Android-24-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Windows-25-blue?style=for-the-badge" />
 </p>
 <!-- DOWNLOAD_BADGES_END -->
 
