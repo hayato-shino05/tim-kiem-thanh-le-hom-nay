@@ -1,36 +1,51 @@
-name: Update Download Count
+name: Cập nhật số lượt tải xuống
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Mỗi ngày lúc 00:00 UTC
-  workflow_dispatch:   # Cho phép chạy thủ công từ GitHub
+    - cron: '0 */12 * * *'  # Chạy mỗi 12 giờ
+  workflow_dispatch:  # Cho phép chạy thủ công
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'README.md'  # Tránh vòng lặp cập nhật
 
 permissions:
-  contents: write
+  contents: write  # Cấp quyền ghi vào repository
 
 jobs:
-  update:
+  update-download-count:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
         with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install axios
-
-      - name: Run script
-        run: node scripts/update-download-count.js
-
-      - name: Commit and push
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Lấy số liệu lượt tải xuống
+        id: get_downloads
         run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
+          # Lấy số liệu từ GitHub API
+          ANDROID_RELEASE=$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/tags/Android)
+          WINDOWS_RELEASE=$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/tags/Windows)
+          
+          # Tính tổng lượt tải
+          ANDROID_DOWNLOADS=$(echo $ANDROID_RELEASE | jq -r '.assets[0].download_count // 0')
+          WINDOWS_DOWNLOADS=$(echo $WINDOWS_RELEASE | jq -r '.assets[0].download_count // 0')
+          TOTAL_DOWNLOADS=$((ANDROID_DOWNLOADS + WINDOWS_DOWNLOADS))
+          
+          # Ghi các số liệu vào output
+          echo "android=$ANDROID_DOWNLOADS" >> $GITHUB_OUTPUT
+          echo "windows=$WINDOWS_DOWNLOADS" >> $GITHUB_OUTPUT
+          echo "total=$TOTAL_DOWNLOADS" >> $GITHUB_OUTPUT
+
+      - name: Cập nhật README
+        run: |
+          # Thay thế phần đánh dấu trong README với số liệu mới
+          sed -i -e "/<!-- DOWNLOAD_BADGES_START -->/,/<!-- DOWNLOAD_BADGES_END -->/c\<!-- DOWNLOAD_BADGES_START -->\n<p align=\"center\">\n  <img src=\"https://img.shields.io/badge/Tổng_lượt_tải-${{ steps.get_downloads.outputs.total }}-brightgreen?style=for-the-badge\" />\n  <img src=\"https://img.shields.io/badge/Android-${{ steps.get_downloads.outputs.android }}-orange?style=for-the-badge\" />\n  <img src=\"https://img.shields.io/badge/Windows-${{ steps.get_downloads.outputs.windows }}-blue?style=for-the-badge\" />\n</p>\n<!-- DOWNLOAD_BADGES_END -->" README.md
+
+      - name: Đẩy thay đổi lên GitHub
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
           git add README.md
-          git commit -m "🔁 update download count" || echo "No changes to commit"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git diff-index --quiet HEAD || git commit -m "Cập nhật số liệu lượt tải xuống"
           git push

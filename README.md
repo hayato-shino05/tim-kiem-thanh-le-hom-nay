@@ -4,9 +4,19 @@ Xin chào bạn! Chào mừng bạn đến với **Tìm Kiếm Thánh Lễ Trự
 
 Tôi là người đứng sau ứng dụng này, và mục tiêu của tôi là mang đến cho bạn – và mọi người – một cách tiếp cận nhanh chóng, tiện lợi đến các video thánh lễ mới nhất. Chỉ cần mở ứng dụng, nhấn vài cái, và danh sách thánh lễ sẽ hiện ra ngay trước mắt. Đơn giản vậy thôi, dùng một lần là thích mê luôn!
 
+## 📊 Tình trạng tải xuống
+
+<!-- DOWNLOAD_BADGES_START -->
+<p align="center">
+  <img src="https://img.shields.io/badge/Tổng_lượt_tải-13-brightgreen?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Android-1-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Windows-12-blue?style=for-the-badge" />
+</p>
+<!-- DOWNLOAD_BADGES_END -->
+
 ## Tải về ngay
-- **Dành cho Android**: Nếu bạn dùng điện thoại Android (Samsung, Xiaomi, Oppo, v.v.), nhấn vào [đây để tải file .apk](https://objects.githubusercontent.com/github-production-release-asset-2e65be/909404292/1a811303-9242-406b-ace3-f55de03b1674?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250410%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250410T234711Z&X-Amz-Expires=300&X-Amz-Signature=6c5fcf39b0a42db6c41b4b243269d5a57edca8d55897685955b8dab942406059&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dtimkiemthanhle.apk&response-content-type=application%2Fvnd.android.package-archive). Tải về và cài đặt dễ dàng!
-- **Dành cho Windows**: Nếu bạn dùng máy tính/laptop chạy Windows, nhấn vào [đây để tải file .exe](https://objects.githubusercontent.com/github-production-release-asset-2e65be/909404292/5820502e-3d1c-42d1-b454-1c2761799597?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250410%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250410T234751Z&X-Amz-Expires=300&X-Amz-Signature=5a1e2ee73d530241bdd8a11ecbece5a9282078bd6a5e8413abddf2329f9f704f&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dtimkiemthanhle.exe&response-content-type=application%2Foctet-stream). Tải về, nhấn đúp để cài, chỉ vài bước là xong!
+- **Dành cho Android**: Nếu bạn dùng điện thoại Android (Samsung, Xiaomi, Oppo, v.v.), nhấn vào [đây để tải file .apk](https://github.com/Hayato-shino05/tool-tim-kiem-thanh-le-hom-nay/releases/download/Android/timkiemthanhle.apk). Tải về và cài đặt dễ dàng!
+- **Dành cho Windows**: Nếu bạn dùng máy tính/laptop chạy Windows, nhấn vào [đây để tải file .exe](https://github.com/Hayato-shino05/tool-tim-kiem-thanh-le-hom-nay/releases/download/Windows/timkiemthanhle.exe). Tải về, nhấn đúp để cài, chỉ vài bước là xong!
 ## Ứng dụng này có gì hay ho?
 - **Tự tìm video cho bạn**: Bạn không cần phải gõ chữ hay tìm kiếm gì đâu, cứ mở lên là ứng dụng tự động hiện ngay các video thánh lễ mới nhất. Mình đã cố gắng làm sao để nó tiện nhất có thể.
 - **Dễ xài cực kỳ**: Giao diện mình làm đơn giản hết mức, chỉ cần nhìn là biết cách dùng ngay. Thấy video nào hay thì nhấn vào, thế là xem được luôn, không rườm rà.
